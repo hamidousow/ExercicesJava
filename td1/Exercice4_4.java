@@ -1,5 +1,5 @@
 import java.util.*;
-public class Exercice4{
+public class Exercice4_4 {
 	
 	public static void main(String args[]){
 		Scanner sc = new Scanner(System.in);
@@ -22,7 +22,7 @@ public class Exercice4{
 			prix = ((nombreCopie - 30) * 0.08 + 2.8);
 	    }	
 	   	
-        System.out.println("Le prix est de : " +prix+ " euros.");
+        System.out.println("Le prix est de :" +prix+ " euros.");
   						
 	}
 }

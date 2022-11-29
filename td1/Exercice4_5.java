@@ -20,6 +20,5 @@ public class Exercice4_5 {
 		} else {
 			System.out.println("vous etes non-imposable");
 		}
-
     }
 }
