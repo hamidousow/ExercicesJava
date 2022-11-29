@@ -2,39 +2,45 @@ import java.util.*;
 
 public class Exercice10 {
 	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
 		
+		int sommeTotale = 0;
+		int remiseMonnaie = 0;
+		int cpt10 = 0;
+		int cpt5 = 0;
+		int cpt1 = 0;
+		int prixArticle;
+		int reste;
+		int sommePayee;
 		
-		int prixTotal = 0;
-		int positionArticle = 0;
-		int[] billets = new int[3];
-		int monnaieClient = 0;
-		int prixArticle;		
-		
-		//System.out.print("Saisir prix de l'article " + (positionArticle) + " : " );
-		Scanner sc = new Scanner(System.in);		
-		
-		while(prixArticle != 0) {
-			System.out.print("Saisir prix de l'article " + (++positionArticle) + " : " );			
+		do {
+			System.out.print("scanner les articles : ");
 			prixArticle = sc.nextInt();
-			prixTotal += prixArticle;			
-		}	
+			sommeTotale = sommeTotale + prixArticle;			
+		} while(prixArticle != 0);
 		
-		System.out.println("prix total : " + prixTotal);
+		System.out.print("Somme a payer : " + sommeTotale + "\n , saisir la somme payee par le client : ");
+		sommePayee = sc.nextInt();
 		
-		//calcule du reste a rendre 
-		System.out.print("Entrer somme donnee par le client : ");
-		monnaieClient = sc.nextInt();		
+		reste = sommePayee - sommeTotale;
+		System.out.print("Monnaie a rendre : " + reste + "\n");
+
+		if(reste >= 10) {
+			cpt10 = reste / 10;
+			reste = reste % 10;
+		}
 		
-		int rest = monnaieClient - prixTotal;	
-		System.out.print("Reste a rendre : " + rest);
+		if(reste >= 5 || reste < 10) {
+			cpt5 = reste / 5;
+			reste = reste % 5;
+		}
 		
-		//detail reste a rendre en 1, 5 et 10
-		
-		for(int i = 0; i < billets.length; i++) {
-			if( rest >= billets[i]) {
-				System.out.print((rest/billets[i]) + " fois " + billets[i] + " euros.");
-				rest = rest % billets[i];
-			}			
+		if(reste >= 0) {
+			cpt1 = reste * 1;
 		}		
+		
+		System.out.println("Remise : \n \t" + cpt10 + " x 10 euro \n \t" + 
+							cpt5 + " x 5 euro \n\t" + 
+							cpt1 + " x 1 euro");
 	}
 }

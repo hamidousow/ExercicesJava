@@ -6,7 +6,7 @@ public class Exercice3 {
 		
 		Scanner sc= new Scanner(System.in);
 		int nombre= 0;
-		int i = 0;
+		int i=0;
 
 		System.out.println("saisir un nombre");
 		nombre=sc.nextInt();

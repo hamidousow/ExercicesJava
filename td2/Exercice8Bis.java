@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Exercice8Bis {
+public class Exercice8bis {
 	public static void main(String args[]) {		
 			
 		Scanner sc = new Scanner(System.in);		
@@ -8,12 +8,13 @@ public class Exercice8Bis {
 		int maxNumber = 0;
 		int compt = 0;
 		int range = 0;
+		int newNumber;
 		
-		for(int i = 0 ; i <= 19 ; i++) {
+		for(int i = 1 ; i <= 20 ; i++) {
 			
-			System.out.println("Saisir le nombre du rang : " + (i+1));			
+			System.out.print("Saisir le nombre numero " + i + " : ");			
 			
-			int newNumber = sc.nextInt();
+			newNumber = sc.nextInt();
 			compt = compt + 1;
 			
 			if(newNumber > maxNumber) {
@@ -22,7 +23,6 @@ public class Exercice8Bis {
 			}			
 		}
 		
-		System.out.println("Le nombre max est : " + maxNumber + " au rang : " + range);
-		
+		System.out.println("Le nombre max est : " + maxNumber + " au rang : " + range);		
 	}
 }

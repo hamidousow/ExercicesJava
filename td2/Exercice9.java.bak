@@ -5,23 +5,23 @@ public class Exercice9 {
 		 
 		Scanner sc = new Scanner(System.in);		
 		
-		int maxNumber = 0;		
-		int range = 1;	
+		int maxNumber = 0;			
+		int input;
+		int i = 1;
+		int indexMax = 0;
 		
-		System.out.println("entrer un nombre : ");
-		int input = sc.nextInt();		
-		
-		while(input != 0) {	
-			System.out.println("entrer un nombre : ");
+		do {	
+			System.out.print("entrez le nombre numero " + i + " : ");
 			input = sc.nextInt();
-			range = range + 1;
+			i++;
 		
 			if(input > maxNumber) {
-				maxNumber = input;										
+				maxNumber = input;	
+				indexMax = i;
 			}							
-		}			
+		} while(input != 0);
 		
-		System.out.println("Le nombre max est : " + maxNumber + " au rang : " + range);
+		System.out.println("Le nombre max est : " + maxNumber + " au rang : " + indexMax);
 		
 	}
 }
