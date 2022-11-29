@@ -1,41 +1,40 @@
 import java.util.*;
 
-public class Exercice4_6 {
-	public static void main(String[] args) {
+ public class Exercice4_6 {
+
+	public static void main(String args[]) {
 		
-		Scanner sc = new Scanner(System.in);
+		Scanner scDouble = new Scanner(System.in);
 		
-		float scoreMinimal = 12.5f;
-		float maxSuffrage = 50.0f;
-		float scoreTotal;		
-		
-		float[] tabCandidat = new float[4];
-		int i;
-		
-		
-		for(i = 0; i < tabCandidat.length ; i++) {
+		System.out.println("Entrez le score du candidat A: "); 
+			double candidatA = scDouble.nextDouble();
 			
-			System.out.println("saisir score du candidat " + (i+1));
-			
-			tabCandidat[i] = sc.nextFloat();
-			System.out.println("Score candidat " + (i+1) + " : " + tabCandidat[i]);
-			
-			if(tabCandidat[0] >= maxSuffrage) {
-				System.out.println("Candidat 1 remporte les elections.");
-				break;
-			} 
+		System.out.println("Entrez le score du candidat B: ");
+			double candidatB = scDouble.nextDouble();
 		
-			if(tabCandidat[0] < scoreMinimal) {
-				System.out.println("Candidat 1 ne passe pas au second tour.");
-				break;
-			}
-							
-		}
+		System.out.println("Entrez le score du candidat C: ");
+			double candidatC = scDouble.nextDouble();
 		
-		if(tabCandidat[0] > tabCandidat[1] && tabCandidat[0] > tabCandidat[2]) {
-			System.out.println("Candidat 1 passe au ballotage favorable.");
-		} else {
+		System.out.println("Entrez le score du candidat D: ");
+			double candidatD = scDouble.nextDouble();
+ 
+	if ((candidatA + candidatB + candidatC + candidatD) != 100) {
+		System.out.println("Vous n'avez pas saisi(e) un ensemble de valeurs valides.");
+		System.exit(0);
+	}
+		
+		if (candidatA > 50) {
 			
+			System.out.println("Le candidat A est elu pour le prochain tour.");
+		} else if (candidatA < 12.5 
+		            || (candidatB > 50 || candidatC > 50 || candidatD > 50) ) { 
+		
+			System.out.println("Le candidat A est battu.");
+		} else if (candidatA >= 12.5 && candidatA > candidatB && candidatA > candidatC && candidatA > candidatD) {
+			
+			System.out.println("Le candidat est en ballotage favorable.");
+		} else if (candidatA >= 12.5 && candidatA <50 && (candidatA < candidatB || candidatA < candidatC || candidatA < candidatD)) {
+			
+		 System.out.println("Le candidat A est en ballotage defavorable.");
 		}
 	}
-}
