@@ -38,3 +38,4 @@ import java.util.*;
 		 System.out.println("Le candidat A est en ballotage defavorable.");
 		}
 	}
+ }

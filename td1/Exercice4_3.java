@@ -43,3 +43,4 @@ public class Exercice4_3 {
 		}
 		System.out.print("Au revoir");
 	}
+}

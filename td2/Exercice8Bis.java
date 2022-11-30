@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Exercice8bis {
+public class Exercice8Bis {
 	public static void main(String args[]) {		
 			
 		Scanner sc = new Scanner(System.in);		

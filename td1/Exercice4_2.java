@@ -24,3 +24,4 @@ public class Exercice4_2 {
 		System.out.println("L'heure sera " + heure + ":" + minute);
 
 	}
+}
