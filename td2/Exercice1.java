@@ -8,7 +8,7 @@ public class Exercice1 {
 		
 		do {
 			System.out.println("Entrez un nombre entre 1 et 3");
-			input = sc.nextInt();
+			input = Integer.parseInt(sc.nextLine());
 			if(input < 1 || input > 3) {
 				System.out.println("Nombre incorrect, saisir un nombre entre 1 et 3");
 			} else {

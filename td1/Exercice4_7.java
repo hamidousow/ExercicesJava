@@ -10,9 +10,7 @@ import java.util.*;
 		int experience;
 		int tarif;
 		int nombreAccidant;
-		int fidelite;
-          
-            
+		int fidelite;            
 		   
 		System.out.println(" saisir votre age ");
 		    age = sc.nextInt();

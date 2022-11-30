@@ -7,16 +7,16 @@ public class Exercice2 {
         int nombre = 0;
         
         System.out.println("Saisir un nombre : ");
-        nombre = sc.nextInt();
+        nombre = Integer.parseInt(sc.nextLine());
         
         while(nombre < 10 || nombre > 20){
             
             if(nombre > 20){
                 System.out.println(" Plus petit, recommencez ");
-                nombre = sc.nextInt();
+                nombre = Integer.parseInt(sc.nextLine());
             } else if(nombre < 10){
                 System.out.println(" Plus grand, recommencez ");
-                nombre = sc.nextInt();
+                nombre = Integer.parseInt(sc.nextLine());
             }
         }
         
