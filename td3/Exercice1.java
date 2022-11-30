@@ -1,7 +1,13 @@
+import java.util.*;
+
 public class Exercice1 {
 	public static void main(String args[]) {
-		System.out.println("Saisir 5 réelles : ");
 		Scanner sc = new Scanner(System.in);
-		float input = sc.nextFloat();
+		
+		System.out.println("Saisir la taille du tableau : ");
+		int [] tab = new int[Integer.parseInt(sc.nextLine())];
+		
+		
+		
 	}
 }
