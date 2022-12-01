@@ -5,9 +5,7 @@ public class Exercice1 {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Saisir la taille du tableau : ");
-		int [] tab = new int[Integer.parseInt(sc.nextLine())];
-		
-		
+		int [] tab = new int[Integer.parseInt(sc.nextLine())];	
 		
 	}
 }

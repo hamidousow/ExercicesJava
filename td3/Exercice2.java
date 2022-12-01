@@ -2,23 +2,20 @@ import java.util.*;
 
 public class Exercice2 {
 	public static void main(String args[]) {
-		
-		int nbrElement = 0;
-		//int i = 0;
-		
+		Scanner sc = new Scanner(System.in);
+		int nbrElements;
+	
 		System.out.print("Saisir le nombre d'elements : ");
 		
-		Scanner sc = new Scanner(System.in);
-		nbrElement = sc.nextInt();
 		
-		int[] tabElement = new int[nbrElement];
-		Random ran = new Random();	
-
+		nbrElements = sc.nextInt();
 		
+		int[] tabElement = new int[nbrElements];
+		Random ran = new Random();		
 		
-		for(int i = 0; i < tabElement.length-1; i++) {
+		for(int i = 0; i < tabElement.length; i++) {
 			tabElement[i] = ran.nextInt(100);
-			System.out.println("[" + tabElement[i] + "]");				
+			System.out.println("element numero " +i+ " : [" + tabElement[i] + "]");				
 		}	
 		
 		System.out.println("Saisir un index et afficher sa valeur");
