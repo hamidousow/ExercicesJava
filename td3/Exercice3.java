@@ -13,7 +13,7 @@ public class Exercice3 {
 		
 		
 		for(int i = 0; i < tabNumber.length; i++) {
-			System.out.print("Veuillez saisir les valeurs : [" + i + "] : ");
+			System.out.print("Veuillez saisir de l'element [" + i + "] : ");
 			tabNumber[i] = sc.nextInt();
 			somme = tabNumber[i] + somme;
 			produit = tabNumber[i] * produit;
