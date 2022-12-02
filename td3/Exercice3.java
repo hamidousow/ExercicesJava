@@ -2,27 +2,50 @@ import java.util.*;
 
 public class Exercice3 {
 	public static void main(String args[]) {	
+		Scanner sc = new Scanner(System.in);
 		
-		int somme = 0;
+		
+		
+		System.out.print("Saisir la taille du tableau : ");
+		int tailleTab = Integer.parseInt(sc.nextLine());
+		
+		int[] tab = saisirTableau(tailleTab,sc);
+		int somme = calculerSomme(tab.length);
 		int produit = 1;
 		
-		System.out.print("Entreez nombre d'elements : ");
-		Scanner sc = new Scanner(System.in);
-		int nbrElement = sc.nextInt();
-		int[] tabNumber = new int[nbrElement];
-		
-		
-		for(int i = 0; i < tabNumber.length; i++) {
-			System.out.print("Veuillez saisir de l'element [" + i + "] : ");
-			tabNumber[i] = sc.nextInt();
-			somme = tabNumber[i] + somme;
-			produit = tabNumber[i] * produit;
+		for(int i = 0; i < tab.length; i++) {
+			produit = tab[i] * produit;
 		}
 		
 		System.out.println("La somme est : " + somme);
 		System.out.println("Le produit est : " + produit);
 		
-		int moyenne = somme / nbrElement;
+		int moyenne = somme / tab.length;
 		System.out.println("La moyenne est : " + moyenne);		
 	}
+	
+	public static  int[] saisirTableau(int nombreElement,Scanner sc){
+		
+		int[] elements = new int[nombreElement];
+		
+		for (int i=0 ; i<elements.length; i++){
+			System.out.print(" veuillez entrer l'element["+i+"] = ");
+			elements[i]= Integer.parseInt(sc.nextLine());
+		}
+		
+		return elements;
+	}
+	
+	public static int calculerSomme(int [] tab) {
+		
+		int somme = 0;
+		
+		for(int i = 0; i < tab.length; i++) {			
+			somme = tab[i] + somme;			
+		}
+		
+		return somme;
+	}
+	
 }
+
