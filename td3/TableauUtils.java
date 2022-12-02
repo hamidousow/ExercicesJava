@@ -95,5 +95,38 @@ public class TableauUtils{
         return nbrIndex;
 		
 	}	
+	public static int[] redim(int[] tab,int nouvelleTaille){
+		if(nouvelleTaille<0){
+			nouvelleTaille=0;
+		}	
+		int[] tmp = new int[nouvelleTaille];
+		if(tab==null)
+			return tmp;
+		int tailleAParcourir = Math.min(tmp.length,tab.length);
+		
+		for(int i=0;i<tailleAParcourir;i++){
+			tmp[i]=tab[i];
+		}
+		return tmp;
+	}
+	public static int[] add(int[] tab,int element){
+		tab = TableauUtils.redim(tab,tab.length+1);
+	    tab[tab.length-1]=element;
+	    return tab;		
+	}
+	public static int[] replace(int[] tab,int element,int index){
+	    tab[index]=element;
+		return tab;		
+	}
+	public static int[] add(int[] tab,int element,int index){
+		tab = TableauUtils.redim(tab,tab.length+1);
+		for (int i=tab.length-2;i>=index;i--){    
+            
+			tab[i+1]=tab[i];
+			
+        }
+	    tab[index]=element;
+		return tab;		
+	}
 	
 }	
