@@ -1,22 +1,32 @@
 import java.util.*;
 
-public class Exercice2 {
-	public static void main(String args[]) {
+public class Exercice2{
+	public static void main(String args[]){
+		int taille;
+		
 		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Veuillez saisir la taille du tableau : ");
+		taille = Integer.parseInt(sc.nextLine());
+		
+		int elements[] = saisirTableau(taille,sc);
 
-		System.out.print("Saisir la taille du tableau: ");		
+		
+		for(int j = 0;j < elements.length;j++){
+			System.out.print(elements[j]+"\t");
+		}
 		
 		
-		int[] tabElement = new int[Integer.parseInt(sc.nextLine())];
-		Random ran = new Random();		
 		
-		for(int i = 0; i < tabElement.length; i++) {
-			tabElement[i] = ran.nextInt(100);
-			System.out.println("element numero " + i + " : [" + tabElement[i] + "]");				
-		}	
-		
-		System.out.println("Saisir un index et afficher sa valeur");
-		int indexValue = sc.nextInt();		 
-		System.out.println("valeur index " + tabElement[indexValue]);				
-	}		
+	}
+	
+	public static  int[] saisirTableau(int nombreElement,Scanner sc){
+		int[] elements = new int[nombreElement];
+		for (int i=0 ; i<elements.length; i++){
+			System.out.print(" veuillez entrer l'element["+i+"] = ");
+			elements[i]= Integer.parseInt(sc.nextLine());
+		}
+		return elements;
+	}
+	
 }

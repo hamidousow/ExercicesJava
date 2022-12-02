@@ -1,20 +1,35 @@
 import java.util.*;
 
-public class Exercice1 {
-	public static void main(String args[]) {
-		Scanner sc = new Scanner(System.in);
-		
-		int somme = 0;
-		
-		System.out.println("Saisir la taille du tableau : ");
-		int [] tab = new int[Integer.parseInt(sc.nextLine())];	
-		
-		for(int i = 0; i < tab.length; i++) {
-			System.out.print("Saisir l'element " + i + " : ");
-			tab[i] = Integer.parseInt(sc.nextLine());
-			somme += tab[i];	
+	public class Exercice1 {
+		public static void main ( String [] args) {
+			
+			Scanner sc = new Scanner(System.in) ;
+			
+			int[] elements = saisirTableau(5,sc);
+			
+			int somme = 0 ;
+			for (int i=0 ; i<elements.length; i++){
+				
+				somme = somme + elements[i];
+			}
+			
+			for (int i=0 ; i<elements.length; i++){
+				System.out.print(elements[i]+ "\t");
+				
+			}
+			System.out.print("\n");
+			System.out.println("la somme = " + somme );
+			
 		}
 		
-		System.out.print(somme);
+		
+		public static  int[] saisirTableau(int nombreElement,Scanner sc){
+			int[] elements = new int[nombreElement];
+			for (int i=0 ; i<elements.length; i++){
+				System.out.print(" veuillez entrer l'element["+i+"] = ");
+				elements[i]= Integer.parseInt(sc.nextLine());
+			}
+			return elements;
+		}
 	}
-}
+
