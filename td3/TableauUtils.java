@@ -53,12 +53,7 @@ public class TableauUtils{
 	}
 	
 	public static int[] chercherToutesOccurences(int elementsAChercher,int[] elements){
-		int nbrIndex = 0;
-		for(int i=0;i<elements.length;i++){				
-			if(elements[i]==elementsAChercher){
-				nbrIndex++;
-			}				
-		}
+		int nbrIndex = calculerNombreOccurences(elementsAChercher,elements);
 		
         int[] index = new int[nbrIndex]; 
 		 	
@@ -72,5 +67,33 @@ public class TableauUtils{
 		return index;
 		
 	}
+	public static int chercherPremiereOccurence(int elementRechercher,int[] elements){
+		
+		for(int i = 0; i < elements.length; i++){
+			if(elements[i] == elementRechercher){
+				return i;
+			}
+		}
+		return -1;
+	}
+    public static int chercherDerniereOccurence(int elementRechercher,int[] elements){
+		
+		for(int i =elements.length-1 ; i >= 0; i--){
+			if(elements[i] == elementRechercher){
+				return i;
+			}
+		}
+		return -1;
+	}
+    public static int calculerNombreOccurences(int elementsAChercher,int[] elements){
+		int nbrIndex = 0;
+		for(int i=0;i<elements.length;i++){				
+			if(elements[i]==elementsAChercher){
+				nbrIndex++;
+			}				
+		}
+        return nbrIndex;
+		
+	}	
 	
 }	

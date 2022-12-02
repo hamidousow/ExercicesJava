@@ -1,34 +1,37 @@
 import java.util.*;
 
-public class Exercice7 {
+public class Exercice7{
 	
-	public static void main(String args[]){		
-	
+	public static void main(String args[]){
 		Scanner sc = new Scanner(System.in);
-		Random ran = new Random();
-		System.out.print("Saisir la taille du tableau : ");
 		
-		int[] tab = new int[Integer.parseInt(sc.nextLine())];
-		int nbrOccurence = 0;
+		System.out.print("Quel est la taille du tableau : ");
+		int taille = Integer.parseInt(sc.nextLine());
+		int elements[] = saisirTableau(taille, sc);
+		int element;
+		int occurence = 0;
+		int position = 0;
+		int i;
 		
-		for(int i = 0; i < tab.length; i++) {					
-			tab[i] = ran.nextInt(9);		
-		}
+		System.out.print("Quel element a rechercher ? : ");
+		element = Integer.parseInt(sc.nextLine());
 		
-		System.out.print("Entrer une occurence a rechercher : ");		
-		int occurenceRecherchee = Integer.parseInt(sc.nextLine());
-		
-		for(int i = tab.length-1; i >= 0; i--) {
-			if(tab[i] == occurenceRecherchee) {
-				System.out.println("Derniere occurence a l'index : " + i);
-				nbrOccurence += 1;
+		for(i = (elements.length - 1); i > 0; i--){
+			
+			if(elements[i] == element && occurence == 0){
+				position = i;
 				break;
-			} 				
+			}
 		}
-		
-		if(nbrOccurence == 0) {
-			System.out.println("Aucune occurence n'a ete trouvee");
-		}
+		System.out.print("La derniere occurence de l'element " + element + " a ete trouve a l'index " + position);
 	}
 	
+	public static  int[] saisirTableau(int nombreElement,Scanner sc){
+			int[] elements = new int[nombreElement];
+			for (int i=0 ; i<elements.length; i++){
+				System.out.print(" veuillez entrer l'element["+i+"] = ");
+				elements[i]= Integer.parseInt(sc.nextLine());
+			}
+			return elements;
+		}
 }
