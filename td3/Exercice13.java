@@ -3,34 +3,21 @@ import java.util.*;
 public class Exercice13 {
 	public static void main(String args[]) {
 		
-		System.out.print("veuillez saisir le nombre d'element : ");
 		Scanner sc = new Scanner(System.in);
-		int nbrElt = sc.nextInt();
 		
-		Random ran = new Random();
-		int tab[] = new int[nbrElt];
+		System.out.print("Saisier la taille du tableau : ");
+		int tailleTableau = Integer.parseInt(sc.nextLine());
 		
-		int tmpVar; 
+		System.out.print("Saisier la borne min : ");
+		int borneMin = Integer.parseInt(sc.nextLine());
 		
-		for(int i = 0 ; i < tab.length ; i++) {
-			tab[i] = ran.nextInt(10);
-			System.out.print("tab [" + tab[i] + "], ");
-		}
+		System.out.print("Saisier la borne max : ");
+		int borneMax = Integer.parseInt(sc.nextLine());	
 		
-		for(int i = 0; i < tab.length ; i++) {
-			for(int j = 1 ; j < tab.length-1 ; j++) {
-				if(tab[j] < tab[i]) {
-					tmpVar = tab[j];
-					tab[j] = tab[i];
-					tab[i] = tmpVar;
-				}
-			}			
-		}
+		int tab [] = TableauUtils.generationTableauAleatoire(tailleTableau, borneMin, borneMax);
 		
-		for(int i = 0 ; i < tab.length ; i++) {
-			tab[i] = ran.nextInt(10);
-			System.out.println("Ordre croissant : [" + tab[i] + "], ");
-		}			   
-	 
+		TableauUtils.filtreParOrdreCroissant(tab);
+		TableauUtils.afficherTableau(tab);
 	}
+	
 }
