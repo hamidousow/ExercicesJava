@@ -161,7 +161,7 @@ public class TableauUtils{
 		return tab;		
 	}
 	
-	public static int[] deleteElement(int [] tab, Scanner sc) {
+	public static void deleteElement(int [] tab, Scanner sc) {
 		
 		System.out.print("Saisir l'index de l'element a supprimer : ");		
 		int elementToDelete = Integer.parseInt(sc.nextLine());
@@ -180,7 +180,7 @@ public class TableauUtils{
 		}
 		
 		tab = tmpTab;
-		return tab;
+		afficherTableau(tab);		
 	}
 	
 }	
