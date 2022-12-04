@@ -10,7 +10,7 @@ public class Exercice3 {
 		int tailleTab = Integer.parseInt(sc.nextLine());
 		
 		int[] tab = saisirTableau(tailleTab,sc);
-		int somme = calculerSomme(tab.length);
+		int somme = calculerSomme(tab);
 		int produit = 1;
 		
 		for(int i = 0; i < tab.length; i++) {
