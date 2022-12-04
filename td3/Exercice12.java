@@ -2,22 +2,12 @@ import java.util.*;
 
 public class Exercice12 {
 	public static void main (String args []) {
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);		
 		
-		
-		//remplir le tableau avec des nombre aleatoire 
 		System.out.print("Saisir le nombre d'elements : ");
-		int nbrElt = sc.nextInt();
-		int[] tab = new int[nbrElt];			
+		int tab [] = TableauUtils.saisirTableau(Integer.parseInt(sc.nextLine()), sc);			
+		TableauUtils.afficherTableau(tab);
 		
-		Random ran = new Random();
-		
-		for(int i = 0; i < tab.length; i++) {
-			tab[i] = ran.nextInt(10);
-			System.out.print(tab[i] + ", ");
-		}
-		
-		//supprimer un index au choix
 		System.out.print("Saisir l'index de l'element a supprimer : ");
 		int deleteIndex = sc.nextInt();
 		
