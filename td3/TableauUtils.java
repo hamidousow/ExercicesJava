@@ -9,6 +9,7 @@ public class TableauUtils{
 		}
 		return somme;
 	}
+	
 	public static int[][] pascal(int limite){
 		
 		if(limite<3){
@@ -30,6 +31,7 @@ public class TableauUtils{
 		}
 		return pascalTab;
  	}
+	
 	public static int[][] produit(int[][] a,int[][] b){
 		
 		if(a[0].length != b.length){
@@ -56,6 +58,7 @@ public class TableauUtils{
 		}
 		return somme;
 	}
+	
 	public static int somme(int[][] tab){
      	int somme = 0;
 		for(int i = 0; i < tab.length; i++) {			
@@ -63,6 +66,7 @@ public class TableauUtils{
 		}
 		return somme;
 	}
+	
 	public static int produit(int[] tab){
      	int produit = 1;
 		for(int i = 0; i < tab.length; i++) {		
@@ -180,7 +184,8 @@ public class TableauUtils{
 	public static int chercherPremiereOccurence(int elementRechercher,int[] elements){
 		
 		for(int i = 0; i < elements.length; i++){
-			if(elements[i] == elementRechercher){
+			if(ele
+			ments[i] == elementRechercher){
 				return i;
 			}
 		}
