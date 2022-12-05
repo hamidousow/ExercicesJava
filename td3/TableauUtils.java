@@ -1,9 +1,6 @@
 import java.util.*;
 public class TableauUtils{
-	
-	/**
-	calcule et retourne la somme des elements d'un tableau
-	*/
+
 	public static int sommeTableau(int[] tab){
      	int somme = 0;
 		for(int i = 0; i < tab.length; i++) {			
@@ -11,10 +8,6 @@ public class TableauUtils{
 		}
 		return somme;
 	}
-	
-	/**
-	calcule et retourne la produit des elements d'un tableau
-	*/
 	public static int produitTableau(int[] tab){
      	int produit = 1;
 		for(int i = 0; i < tab.length; i++) {		
@@ -23,16 +16,10 @@ public class TableauUtils{
 		return produit;
 	}
 	
-	/**
-	retourne la moyenne des elements d'un tableau
-	*/	
-	public static int moyenneTableau(int[] tab){
-     	return sommeTableau(tab)/tab.length;
+	public static double moyenneTableau(int[] tab){
+     	return (double)sommeTableau(tab)/tab.length;
 	}
 	
-	/**
-	permet de saisir manuellement les donnees d'un tableau. Retourne un nouveau tableau
-	*/
 	public static  int[] saisirTableau(int nombreElement,Scanner sc){
 		
 		int[] elements = new int[nombreElement];
@@ -44,14 +31,10 @@ public class TableauUtils{
 		
 		return elements;
 	}
-	
-	/** renvoie un tableau rempli avec des entiers aléatoires. Bornes des entiers fixes de 0 à 200.*/
     public static  int[] generationTableauAleatoire(int nombreElement){
 		return generationTableauAleatoire(nombreElement,0,200);
 	}
 	
-	
-	/** renvoie un tableau rempli avec des entiers aléatoires. Bornes des entiers aléatoire parametrables. */
 	public static  int[] generationTableauAleatoire(int nombreElement,int min,int max){
 		Random ran=new Random();
 		int[] elements = new int[nombreElement];
@@ -61,7 +44,6 @@ public class TableauUtils{
 		}
 		return elements;
 	}
-	
 	
 	public static void afficherTableau(int[] elements){		
 		for (int i=0 ; i<elements.length; i++){		
@@ -85,8 +67,6 @@ public class TableauUtils{
 		return index;
 		
 	}
-	
-	
 	public static int chercherPremiereOccurence(int elementRechercher,int[] elements){
 		
 		for(int i = 0; i < elements.length; i++){
@@ -96,8 +76,6 @@ public class TableauUtils{
 		}
 		return -1;
 	}
-	
-	
     public static int chercherDerniereOccurence(int elementRechercher,int[] elements){
 		
 		for(int i =elements.length-1 ; i >= 0; i--){
@@ -107,8 +85,6 @@ public class TableauUtils{
 		}
 		return -1;
 	}
-	
-	
     public static int calculerNombreOccurences(int elementsAChercher,int[] elements){
 		int nbrIndex = 0;
 		for(int i=0;i<elements.length;i++){				
@@ -119,8 +95,6 @@ public class TableauUtils{
         return nbrIndex;
 		
 	}	
-	
-	
 	public static int[] redim(int[] tab,int nouvelleTaille){
 		if(nouvelleTaille<0){
 			nouvelleTaille=0;
@@ -136,68 +110,79 @@ public class TableauUtils{
 		return tmp;
 	}
 	
-	
+	public static int[] replace(int[] tab,int element,int index){
+	    tab[index]=element;
+		return tab;		
+	}
+	public static int[] add(int[] tab,int element,int index){
+		tab = TableauUtils.redim(tab,tab.length+1);
+		for (int i=tab.length-2;i>=index;i--){    
+			tab[i+1]=tab[i];	
+        }
+	    tab[index]=element;
+		return tab;		
+	}
 	public static int[] add(int[] tab,int element){
 		tab = TableauUtils.redim(tab,tab.length+1);
 	    tab[tab.length-1]=element;
 	    return tab;		
 	}
 	
+	public static int[] supprimer(int[] tableau,int index){
+		
+		/*int a = condi?valOk:;
+		
+		int a;
+		if(condi){
+			a=  valOk;
+		}else {
+			if(condi2){
+				a=  valOk2;
+		    }else {
+				a = valElse
+			 }
+		}*/
+		
+		int tmp[] = null;
+		
+		if(tableau!=null && tableau.length>0)
+			tmp = new int[tableau.length-1];	
 	
-	public static int[] replace(int[] tab,int element,int index){
-	    tab[index]=element;
-		return tab;		
+		if(tableau == null )
+			throw new IllegalArgumentException("Tableau en entrée est null");	
+		if(tableau.length==0)
+			throw new IllegalArgumentException("Tableau est vide");	
+		if(index<0 || index>tmp.length)
+			throw new IllegalArgumentException("L'index est incorrect");
+		
+		for (int i=0; i<tmp.length;i++){
+			if(i<index){
+				tmp[i]=tableau[i];
+			}else{
+				tmp[i]=tableau[i+1];
+			}	
+		}
+
+		return tmp;		
 	}
 	
-	
-	public static int[] add(int[] tab,int element,int index){
-		tab = TableauUtils.redim(tab,tab.length+1);
-		for (int i=tab.length-2;i>=index;i--){    
-            
-			tab[i+1]=tab[i];
-			
-        }
-	    tab[index]=element;
-		return tab;		
-	}
-	
-	public static void deleteElement(int [] tab, Scanner sc) {
+	public static int[] trier(int[] tableau,boolean asc){
 		
-		System.out.print("Saisir l'index de l'element a supprimer : ");		
-		int elementToDelete = Integer.parseInt(sc.nextLine());
-		
-		int [] tmpTab = TableauUtils.redim(tab, tab.length-1);
-		
-		for(int i = 0; i < tab.length ; i++) {
-			if( i < elementToDelete) {
-				
-				tmpTab[i] = tab[i];
-				
-			} else if (i > elementToDelete) {
-				
-				tmpTab[i-1] = tab[i];				
+		if(tableau == null )
+			return null;	
+		boolean condition ;
+	    int tmp;
+		for(int i=0;i<tableau.length-1;i++){
+			for(int j=i+1;j<tableau.length;j++){
+				condition = asc?(tableau[i] > tableau[j]):(tableau[i] < tableau[j]);
+				if(condition){
+				tmp = tableau[j];
+				tableau[j]= tableau[i];
+				tableau[i] = tmp;
+				}
 			}
 		}
-		
-		tab = tmpTab;
-		afficherTableau(tab);		
-	}
-	
-	public static int [] filtreParOrdreCroissant(int [] tab) {
-		
-		int tmpVar = -1; 
-		
-		for(int i = 0; i < tab.length; i++) {
-			for(int j = 0; j < tab.length-1; j++) {
-				if(tab[i] < tab[j]) {
-					tmpVar = tab[i];
-					tab[i] = tab[j];
-					tab[j] = tmpVar;
-				}
-			}			
-		}
-		
-		return tab;
+		return tableau;		
 	}
 	
 }	
