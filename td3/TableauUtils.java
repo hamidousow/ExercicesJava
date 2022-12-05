@@ -199,5 +199,22 @@ public class TableauUtils{
 		
 		return tab;
 	}
+
+	public static int [] filtreParOrdreDecroissant(int [] tab) {
+		
+		int tmpVar = -1; 
+		
+		for(int i = 0; i < tab.length; i++) {
+			for(int j = 0; j < tab.length-1; j++) {
+				if(tab[i] > tab[j]) {
+					tmpVar = tab[i];
+					tab[i] = tab[j];
+					tab[j] = tmpVar;
+				}
+			}			
+		}
+		
+		return tab;
+	}
 	
 }	

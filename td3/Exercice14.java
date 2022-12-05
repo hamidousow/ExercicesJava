@@ -1,8 +1,10 @@
 import java.util.*;
 
-public class Exercice12 {
-	public static void main (String args []) {
-		Scanner sc = new Scanner(System.in);		
+public class Exercice14 {
+	public static void main(String args[]) {
+		
+		Scanner sc = new Scanner(System.in);
+		
 		System.out.print("Saisier la taille du tableau : ");
 		int tailleTableau = Integer.parseInt(sc.nextLine());
 		
@@ -10,10 +12,12 @@ public class Exercice12 {
 		int borneMin = Integer.parseInt(sc.nextLine());
 		
 		System.out.print("Saisier la borne max : ");
-		int borneMax = Integer.parseInt(sc.nextLine());		
+		int borneMax = Integer.parseInt(sc.nextLine());	
 		
-		int tab [] = TableauUtils.generationTableauAleatoire(tailleTableau, borneMin, borneMax);			
+		int tab [] = TableauUtils.generationTableauAleatoire(tailleTableau, borneMin, borneMax);
+		
+		TableauUtils.filtreParOrdreDecroissant(tab);
 		TableauUtils.afficherTableau(tab);
-		TableauUtils.deleteElement(tab, sc);			
 	}
+	
 }
