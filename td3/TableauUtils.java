@@ -184,8 +184,7 @@ public class TableauUtils{
 	public static int chercherPremiereOccurence(int elementRechercher,int[] elements){
 		
 		for(int i = 0; i < elements.length; i++){
-			if(ele
-			ments[i] == elementRechercher){
+			if(elements[i] == elementRechercher){
 				return i;
 			}
 		}

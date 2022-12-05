@@ -14,10 +14,12 @@ public class Exercice16 {
 		
 		int [][] tab = TableauUtils.generationAleatoire(nbrLignes, nbrColonnes);
 		TableauUtils.afficher(tab);
-		TableauUtils.somme(tab);
-		TableauUtils.afficher(tab);
 		
-		
+		System.out.print(TableauUtils.somme(tab));
+		System.out.println();	
+		System.out.print(TableauUtils.produit(tab));
+		System.out.println();
+		System.out.print(TableauUtils.moyenne(tab));
 	
 	}
 
