@@ -1,14 +1,69 @@
-import java.util.*;
+import java.util.Random;
+import java.util.Scanner;
 public class TableauUtils{
 
-	public static int sommeTableau(int[] tab){
+	public static int somme(int[] tab){
      	int somme = 0;
 		for(int i = 0; i < tab.length; i++) {			
 			somme = tab[i] + somme;
 		}
 		return somme;
 	}
-	public static int produitTableau(int[] tab){
+	public static int[][] pascal(int limite){
+		
+		if(limite<3){
+			throw new IllegalArgumentException("Impossible : taille >3 ");
+		}
+		
+     	int[][] pascalTab = new int[limite][];
+		
+		for(int i =0; i<pascalTab.length;i++){
+			pascalTab[i]= new int[i+1];
+			pascalTab[i][0]=1;
+			pascalTab[i][i]=1;
+		}
+		
+		for(int i =1; i<pascalTab.length;i++){
+			for(int j =1; j<pascalTab[i].length-1;j++){
+				pascalTab[i][j]=pascalTab[i-1][j]+pascalTab[i-1][j-1];
+			}
+		}
+		return pascalTab;
+ 	}
+	public static int[][] produit(int[][] a,int[][] b){
+		
+		if(a[0].length != b.length){
+			throw new IllegalArgumentException("Impossible : nombre de colonnes de a!= nombre de lignes de b");
+		}
+		
+     	int[][] produitMatrices = new int[a.length][b[0].length];
+		
+		for(int i =0; i<produitMatrices.length;i++){
+			for(int j =0; j<produitMatrices[i].length;j++){
+				produitMatrices[i][j] =0;
+				for(int k=0;k<b.length;k++){
+					produitMatrices[i][j] += (a[i][k] * b[k][j]);
+				}
+			}
+		}
+		return produitMatrices;
+ 	}
+	
+	public static int sommeDiagonale(int[][] tab){
+     	int somme = 0;
+		for(int i = 0; i < tab.length; i++) {			
+			somme += tab[i][i];
+		}
+		return somme;
+	}
+	public static int somme(int[][] tab){
+     	int somme = 0;
+		for(int i = 0; i < tab.length; i++) {			
+			somme = somme(tab[i]) + somme;
+		}
+		return somme;
+	}
+	public static int produit(int[] tab){
      	int produit = 1;
 		for(int i = 0; i < tab.length; i++) {		
 			produit = tab[i] * produit;
@@ -16,11 +71,41 @@ public class TableauUtils{
 		return produit;
 	}
 	
-	public static double moyenneTableau(int[] tab){
-     	return (double)sommeTableau(tab)/tab.length;
+	public static int produit(int[][] tab){
+     	int produit = 1;
+		for(int i = 0; i < tab.length; i++) {		
+			produit = produit(tab[i]) * produit;
+		}
+		return produit;
 	}
 	
-	public static  int[] saisirTableau(int nombreElement,Scanner sc){
+	public static double moyenne(int[][] tab){
+		int taille = 0;
+		for(int i = 0; i < tab.length; i++) {		
+			taille += tab[i].length;
+		}
+     	return (double)somme(tab)/taille;
+	}
+	
+	public static double moyenne(int[] tab){
+     	return (double)somme(tab)/tab.length;
+	}
+	
+	public static  int[][] saisir(int n,int m,Scanner sc){
+		
+		int[][] elements = new int[n][m];
+		
+		for (int i=0 ; i<elements.length; i++){
+			for(int j=0;j<elements[i].length;j++){
+				System.out.print(" veuillez entrer l'element["+i+"]["+j+"]  = ");
+			    elements[i][j]= Integer.parseInt(sc.nextLine());
+			}
+		}
+		
+		return elements;
+	}
+	
+	public static  int[] saisir(int nombreElement,Scanner sc){
 		
 		int[] elements = new int[nombreElement];
 		
@@ -31,11 +116,31 @@ public class TableauUtils{
 		
 		return elements;
 	}
-    public static  int[] generationTableauAleatoire(int nombreElement){
-		return generationTableauAleatoire(nombreElement,0,200);
+	
+	public static  int[][] generationAleatoire(int n,int m){
+		return generationAleatoire(n,m,10,200);
 	}
 	
-	public static  int[] generationTableauAleatoire(int nombreElement,int min,int max){
+	public static  int[][] generationAleatoire(int n,int m,int min,int max){
+		Random ran=new Random();
+		int[][] elements = new int[n][];
+		/*for (int i=0 ; i<elements.length; i++){
+			for (int j=0 ; j<elements[i].length; j++){
+				elements[i][j]= ran.nextInt(max+1-min)+min;
+			}	
+		}*/
+		for (int i=0 ; i<elements.length; i++){
+			elements[i] = 	generationAleatoire(m,min,max);
+		}
+		
+		return elements;
+	}
+	
+    public static  int[] generationAleatoire(int nombreElement){
+		return generationAleatoire(nombreElement,0,200);
+	}
+	
+	public static  int[] generationAleatoire(int nombreElement,int min,int max){
 		Random ran=new Random();
 		int[] elements = new int[nombreElement];
 		for (int i=0 ; i<elements.length; i++){
@@ -44,8 +149,13 @@ public class TableauUtils{
 		}
 		return elements;
 	}
-	
-	public static void afficherTableau(int[] elements){		
+	public static void afficher(int[][] elements){		
+		for (int i=0 ; i<elements.length; i++){		
+			afficher(elements[i]);
+		}
+		
+	}
+	public static void afficher(int[] elements){		
 		for (int i=0 ; i<elements.length; i++){		
 			System.out.print(elements[i]+"\t");				
 		}
@@ -185,4 +295,27 @@ public class TableauUtils{
 		return tableau;		
 	}
 	
+	public static int[] fusion(int[] tab1, int[] tab2) {
+		
+		if(tab1 == null)
+			tab1 = new int[0];
+		
+		if(tab2 == null)
+			tab2 = new int[0];
+		
+		int[] tabFusion = new int[tab1.length+tab2.length];
+		
+		for(int i=0;i<tab1.length;i++){			
+			tabFusion[i]=tab1[i];		
+		}
+		
+		for(int i=0;i<tab2.length;i++){			
+			tabFusion[i+tab1.length]=tab2[i];		
+		}
+		/*for(int i=tab1.length;i<tabFusion.length;i++){			
+			tabFusion[i]=tab1[i-tab1.length];		
+		}*/
+		
+		return tabFusion;
+	}
 }	
