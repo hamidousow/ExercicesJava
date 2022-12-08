@@ -123,16 +123,20 @@ public class TableauUtils{
 	
 	public static int[] redim(int[] tab,int nouvelleTaille){
 		if(nouvelleTaille<0){
-			nouvelleTaille=0;
+			nouvelleTaille=0; 
 		}	
+
 		int[] tmp = new int[nouvelleTaille];
+
 		if(tab==null)
 			return tmp;
+
 		int tailleAParcourir = Math.min(tmp.length,tab.length);
 		
 		for(int i=0;i<tailleAParcourir;i++){
 			tmp[i]=tab[i];
 		}
+		
 		return tmp;
 	}
 	
