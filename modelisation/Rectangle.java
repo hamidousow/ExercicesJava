@@ -59,10 +59,32 @@ public class Rectangle {
 
     public static void main(String args[]) {
 
-        Rectangle rectangle = new Rectangle(5, 5);
-        rectangle.calcPerimetre();
-        rectangle.calcAire();
-        rectangle.isCarre();
-        System.out.print(rectangle.toString());
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Saisir le nombre d'elements : ");
+        int nbr = sc.nextInt();
+
+        Rectangle rectangles [] = new Rectangle[nbr];
+
+        for(int i = 0; i < rectangles.length; i++) {            
+            System.out.print("  Rectangle " + (i+1) + " : ");
+            System.out.println();
+            System.out.print("\t\tSaisir la longueur du rectangle : ");
+            double longueur = sc.nextDouble();
+
+            System.out.print("\t\tSaisir la largeur du rectangle : ");
+            double largeur = sc.nextDouble();
+            Rectangle rectangle = new Rectangle(longueur ,largeur);
+            rectangles[i] = rectangle;
+            System.out.println();
+        }
+
+        for(Rectangle rectangle : rectangles) {
+            rectangle.calcPerimetre();
+            rectangle.calcAire();
+            rectangle.isCarre();
+            System.out.print(rectangle.toString());
+            System.out.println();
+        }        
     }
 }
