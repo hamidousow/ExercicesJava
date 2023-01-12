@@ -58,7 +58,7 @@ public class Livre {
         Scanner sc = new Scanner(System.in);        
 
         System.out.print("Entrer le nombre de livre que vous souhaitez publier :  ");
-        int nbrLivres = sc.nextInt();
+        int nbrLivres = Integer.parseInt(sc.nextLine());
         
         Livre [] livres = new Livre[nbrLivres]; 
 
@@ -69,7 +69,7 @@ public class Livre {
             System.out.print("Donner l'auteur du livre n" + (i+1) + ": ");
             String auteur = sc.nextLine();
             System.out.print("Donner le prix du livre n " + (i+1) + ": ");
-            double prix = sc.nextDouble();
+            double prix = Double.parseDouble(sc.nextLine());
             Livre newLivre = new Livre(titre, auteur, prix);
             newLivre.id = i +1;
             livres[i] = newLivre;

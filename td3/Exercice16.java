@@ -1,22 +1,8 @@
 import java.util.*;
 
 public class Exercice16 {
-<<<<<<< HEAD
-	public static void main(String args[]) {
-		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.print("Saisier la taille du tableau 1 : ");
-		int tailleTableau = Integer.parseInt(sc.nextLine());
-		
-		int tab [] = TableauUtils.generationTableauAleatoire(tailleTableau);
-		TableauUtils.afficherTableau(tab);
-	}
-	
-}
-=======
 
-	public static void main(String[] args){
+	public static void main(String[] args) {
 	
 		Scanner sc= new Scanner(System.in);
 		
@@ -38,4 +24,4 @@ public class Exercice16 {
 	}
 
 }
->>>>>>> 4d9e668b6e6cd1cc2fc97bf621dbabf830def0bc
+

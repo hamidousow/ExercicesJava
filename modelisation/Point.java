@@ -35,7 +35,6 @@ public class Point {
         return String.valueOf(distance(this.x, this.y));
     }
 
-
     public static void main(String args[]) {
 
         Point point = new Point(2, 3);
