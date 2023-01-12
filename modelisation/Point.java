@@ -1,4 +1,5 @@
 import java.lang.Math.*;
+import java.util.*;
 
 public class Point {
     private double x;
@@ -32,13 +33,32 @@ public class Point {
     }
 
     public String toString() {
-        return String.valueOf(distance(this.x, this.y));
+        return "La distance entre l'origine et le point (2, 3) est : " + distance(this.x, this.y);
     }
 
     public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
 
-        Point point = new Point(2, 3);
-        System.out.print("La distance entre l'origine et le point (2, 3) est : " + point.distance(point.x, point.y));        
+        System.out.print("Saisir le nombre d'elements: ");
+        int nbrElements = Integer.parseInt(sc.nextLine());
+        Point [] points = new Point[nbrElements];
+
+        for(int i = 0; i < points.length; i++) {
+
+            System.out.print("Saisir l'origine du point " + (i+1) + ": ");
+            double depart = Double.parseDouble(sc.nextLine());
+            System.out.println();
+            System.out.print("Saisir la position d'arrivee du point " + (i+1) + ": ");
+            double arrivee = Double.parseDouble(sc.nextLine());
+
+            Point point = new Point(depart, arrivee);
+            points[i] = point;
+        }
+        
+
+        for(int i = 0; i < points.length; i++) {
+            System.out.println(points[i].toString()); 
+        }              
 
     }
 }
