@@ -62,7 +62,7 @@ public class Rectangle {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Saisir le nombre d'elements : ");
-        int nbr = sc.nextInt();
+        int nbr = Integer.parseInt(sc.nextInt());
 
         Rectangle rectangles [] = new Rectangle[nbr];
 
@@ -70,10 +70,10 @@ public class Rectangle {
             System.out.print("  Rectangle " + (i+1) + " : ");
             System.out.println();
             System.out.print("\t\tSaisir la longueur du rectangle : ");
-            double longueur = sc.nextDouble();
+            double longueur = Integer.parseInt(sc.nextLine());
 
             System.out.print("\t\tSaisir la largeur du rectangle : ");
-            double largeur = sc.nextDouble();
+            double largeur = Integer.parseInt(sc.nextLine());
             Rectangle rectangle = new Rectangle(longueur ,largeur);
             rectangles[i] = rectangle;
             System.out.println();
